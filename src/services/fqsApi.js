@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const baseURL = "http://172.17.234.55:7000/api/";
+const baseURL = "http://localhost:7000/api/";
 
 // Define a service using a base URL and expected endpoints
 export const fqsApi = createApi({

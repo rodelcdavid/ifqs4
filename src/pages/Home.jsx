@@ -5,11 +5,11 @@ import AppHeading from "../components/AppHeading";
 
 function Home() {
   return (
-    <Flex minH="100vh" flexDir="column">
+    <Flex flexDir="column">
       <AppHeading />
       <Flex h="calc(100vh - 4rem)">
         <SideBar />
-        <Box w="100%" padding="1rem">
+        <Box w="100%" padding="1rem" overflowY="auto">
           <Outlet />
         </Box>
       </Flex>

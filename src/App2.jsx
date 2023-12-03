@@ -26,7 +26,6 @@ import { QuizOverviewPage } from "./pages/QuizOverview";
 import { AnswerQuizPage } from "./pages/AnswerQuiz";
 import { ReviewPage } from "./pages/Review";
 import { ReportsPage } from "./pages/Reports";
-import AssessmentLayout from "./pages/Assessment/components/AssessmentLayout";
 
 function App() {
   const { isUserAuthenticated } = useSelector((state) => state.authState);
@@ -44,6 +43,23 @@ function App() {
                 <Route path=":title" element={<FormSetupPage />} />
               </Route>
 
+              {/* Assessment */}
+              <Route path="/assessment" element={<Outlet />}>
+                <Route index element={<AssessmentPage />} />
+
+                {/* Quiz */}
+                <Route path=":type/:code" element={<QuizOverviewPage />} />
+                <Route path=":type/:code/review" element={<ReviewPage />} />
+                <Route path=":type/:code/answer" element={<AnswerQuizPage />} />
+                <Route path=":type/:code/results" element={<QuizResults />} />
+
+                {/* Forms */}
+                {/* Overview */}
+                {/* Review */}
+                {/* Answer */}
+                {/* Finish */}
+              </Route>
+
               {/* Reports */}
               <Route path="/reports" element={<Outlet />}>
                 <Route index element={<ReportsPage />} />
@@ -57,28 +73,6 @@ function App() {
             path="/login"
             element={isUserAuthenticated ? <Navigate to="/" /> : <Login />}
           />
-
-          {/* Assessment */}
-          <Route
-            path="/assessment"
-            element={
-              isUserAuthenticated ? <Navigate to="/" /> : <AssessmentLayout />
-            }
-          >
-            <Route index element={<AssessmentPage />} />
-
-            {/* Quiz */}
-            <Route path=":type/:code" element={<QuizOverviewPage />} />
-            <Route path=":type/:code/review" element={<ReviewPage />} />
-            <Route path=":type/:code/answer" element={<AnswerQuizPage />} />
-            <Route path=":type/:code/results" element={<QuizResults />} />
-
-            {/* Forms */}
-            {/* Overview */}
-            {/* Review */}
-            {/* Answer */}
-            {/* Finish */}
-          </Route>
           <Route path="/*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
