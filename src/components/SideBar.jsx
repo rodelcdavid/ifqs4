@@ -97,24 +97,25 @@ function SideBar() {
       >
         Reports
       </Link> */}
-
-      <Link
-        as={NavLink}
-        onClick={handleLogout}
-        display="block"
-        color="red.500"
-        borderTop="1px solid"
-        borderColor="blackAlpha.400"
-        textAlign="center"
-        mt="auto"
-        _hover={{
-          textDecor: "none",
-          fontWeight: "bold",
-          bgColor: "gray.200",
-        }}
-      >
-        Log Out
-      </Link>
+      {isUserAuthenticated && (
+        <Link
+          as={NavLink}
+          onClick={handleLogout}
+          display="block"
+          color="red.500"
+          borderTop="1px solid"
+          borderColor="blackAlpha.400"
+          textAlign="center"
+          mt="auto"
+          _hover={{
+            textDecor: "none",
+            fontWeight: "bold",
+            bgColor: "gray.200",
+          }}
+        >
+          Log Out
+        </Link>
+      )}
     </Flex>
   );
 }
