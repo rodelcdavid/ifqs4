@@ -30,6 +30,18 @@ export const fqsApi = createApi({
         body: data,
       }),
     }),
+    getEmployeeItems: builder.query({
+      query: (Proximity) => ({
+        url: `employee-items/${Proximity}`,
+      }),
+    }),
+    getOptions: builder.query({
+      query: (data) => ({
+        url: `get-options`,
+        method: "POST",
+        body: data,
+      }),
+    }),
   }),
 });
 
@@ -39,4 +51,6 @@ export const {
   useLazyLoginUserQuery,
   useLazyVerifyCodeQuery,
   useLazyGetEmployeeDetailsQuery,
+  useLazyGetEmployeeItemsQuery,
+  useLazyGetOptionsQuery,
 } = fqsApi;
